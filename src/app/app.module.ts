@@ -1,50 +1,57 @@
+import { MaterialModule } from './material/material.module';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
-import { NavbarComponent } from './components/navigation/navbar/navbar.component';
-import { FooterComponent } from './components/navigation/footer/footer.component';
-import { LoginComponent } from './components/auth/login/login.component';
-import { AnnouncementComponent } from './components/navigation/announcement/announcement.component';
-import { SliderComponent } from './components/navigation/slider/slider.component';
-import { CategoriesComponent } from './components/navigation/categories/categories.component';
-import { CategoriesItemComponent } from './components/navigation/categories-item/categories-item.component';
-import { NewsletterComponent } from './components/navigation/newsletter/newsletter.component';
-import { ProductComponent } from './components/navigation/product/product.component';
-import { ProductsComponent } from './components/navigation/products/products.component';
+import { NavbarComponent } from './components/header/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer/footer.component';
+import { SliderComponent } from './components/header/slider/slider.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { TrendingComponent } from './components/home/trending/trending.component';
+import { ProductsComponent } from './components/home/products/products.component';
+import { CommunicationsComponent } from './components/footer/communications/communications.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { TestComponent } from './test/test.component';
+import { FormComponent } from './form/form.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    LoginComponent,
-    AnnouncementComponent,
     SliderComponent,
-    CategoriesComponent,
-    CategoriesItemComponent,
-    NewsletterComponent,
-    ProductComponent,
+    TrendingComponent,
     ProductsComponent,
-    
+    CommunicationsComponent,
+    TestComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    MatSliderModule,
     BrowserAnimationsModule,
-    CarouselModule
+    CarouselModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
-  providers: [
-
-  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

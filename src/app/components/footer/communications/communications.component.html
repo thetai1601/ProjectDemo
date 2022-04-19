@@ -1,0 +1,41 @@
+<div class="container-fluid">
+  <h1 class="title">Your Contact</h1>
+  <div class="desc">Let us know your contact so we can send you promotions.</div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="userContact">
+    <div class="input-container">
+      <input
+        type="text"
+        class="input"
+        name="name"
+        placeholder="Cristiano Ronaldo"
+        formControlName="name"
+      />
+    </div>
+    <span *ngIf="name && name.invalid && name.touched">This input field not valid</span>
+    <div class="input-container">
+      <input
+        type="text"
+        class="input"
+        name="email"
+        placeholder="Ronaldo@gmail.com"
+        formControlName="email"
+      />
+    </div>
+  
+    <span *ngIf="email && email.invalid && email.touched">This input field not valid</span>
+  
+    <div class="input-container">
+      <input
+        type="text"
+        class="input"
+        name="phone"
+        placeholder="039999999"
+        formControlName="phone"
+      />
+    </div>
+  
+    <span *ngIf="phone && phone.invalid && phone.touched">This input field not valid</span>
+    <br>
+    <div class="button-container"><button type="submit" class="btn btn-primary" [disabled]="userContact.invalid">Submit</button></div>
+  </form>
+</div>

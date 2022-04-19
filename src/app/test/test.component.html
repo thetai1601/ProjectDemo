@@ -1,0 +1,40 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="userContact">
+  <div class="input-container">
+    <input
+      type="text"
+      class="input"
+      name="name"
+      placeholder="Cristiano Ronaldo"
+      formControlName="name"
+    />
+  </div>
+  <span *ngIf="name && name.invalid && name.touched">This input field not valid</span>
+  <div class="input-container">
+    <input
+      type="text"
+      class="input"
+      name="email"
+      placeholder="Email"
+      formControlName="email"
+    />
+  </div>
+
+  <span *ngIf="email && email.invalid && email.touched">This input field not valid</span>
+
+  <div class="input-container">
+    <input
+      type="text"
+      class="input"
+      name="phone"
+      placeholder="039999999"
+      formControlName="phone"
+    />
+  </div>
+
+  <span *ngIf="phone && phone.invalid && phone.touched">This input field not valid</span>
+
+  <button type="submit" [disabled]="userContact.invalid">Submit</button>
+</form>
+
+
+<pre>{{ userContact.value | json }}</pre>
