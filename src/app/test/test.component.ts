@@ -1,40 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { PostService } from './../../../post-service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Component, OnInit, VERSION } from '@angular/core';
 
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
-  styleUrls: ['./test.component.scss']
+  styleUrls: ['./test.component.scss'],
 })
 export class TestComponent implements OnInit {
-
-  userContact!: FormGroup;
-
-  constructor() { }
+  dataList = null;
+  constructor(private postService: PostService) {}
 
   ngOnInit(): void {
-    this.userContact = new FormGroup({
-      name: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]+$') ]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      phone: new FormControl('', [Validators.required, Validators.pattern('[0-9\-\+]{9,15}$'), Validators.minLength(0)]),
+    this.postService.getListPosts().subscribe((res) => {
+      this.dataList = res;
     })
   }
-
-
-  onSubmit() {
-    console.warn(this.userContact.value);
-  }
-
-  get name() {
-    return this.userContact.get('name')
-  }
-
-  get email() {
-    return this.userContact.get('email')
-  }
-
-  get phone() {
-    return this.userContact.get('phone')
-  }
-
+  
 }
